@@ -7,7 +7,7 @@ for f in $PATTERN_FILES
 do
   filename=$(basename $f)
   filename=`echo $filename|cut -d "." -f1`
-  cat $f
+  echo $f
    
   echo "%%" >> temp.txt
   cat $f >> temp.txt 
@@ -15,7 +15,6 @@ do
   flex -v -T temp.txt 2> temp2.txt  # running the flex tool 
   python flextokiss2format.py temp2.txt > temp3.txt # python script to create kiss2 format output from flex output.
 
-  #cat $f > "$FSM_DIRECTORY/$filename.fsm" # saving the fsm files
   cat temp3.txt > "$FSM_DIRECTORY/$filename.fsm" # saving the fsm files
   rm temp.txt
   rm temp2.txt
