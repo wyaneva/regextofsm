@@ -12,10 +12,12 @@ do
   echo "%%" >> temp.txt
   cat $f >> temp.txt 
   echo "%%" >> temp.txt
+  echo "flex"
   flex -v -T temp.txt 2> temp2.txt  # running the flex tool 
+  echo "python"
   python flextokiss2format.py temp2.txt > temp3.txt # python script to create kiss2 format output from flex output.
 
-  cat temp3.txt > "$FSM_DIRECTORY/$filename.fsm" # saving the fsm files
+  cat temp3.txt > "$FSM_DIRECTORY/fsm$filename.fsm" # saving the fsm files
   rm temp.txt
   rm temp2.txt
   rm temp3.txt
