@@ -22,3 +22,6 @@ do
   rm temp2.txt
   rm temp3.txt
 done
+
+# add headers to files
+python kiss2header.py $FSM_DIRECTORY $FSM_DIRECTORY
